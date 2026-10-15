@@ -1,0 +1,3 @@
+# Optional observer dependency; install only in OpenMontage's .venv.
+# ComfyUI keeps using its existing ROCm environment. Do not install torch here.
+websockets>=15,<17

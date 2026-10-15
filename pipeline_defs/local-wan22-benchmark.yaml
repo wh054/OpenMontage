@@ -1,0 +1,24 @@
+name: local-wan22-benchmark
+version: "1.0"
+description: User-authorized local AMD Wan 2.2 14B performance and visual-quality benchmark.
+category: custom
+stability: beta
+default_checkpoint_policy: auto_noncreative
+stages:
+  - name: assets
+    skill: pipelines/local-wan22-benchmark/director
+    produces: [asset_manifest]
+    tools_available: [video_selector, comfyui_video]
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus: [Exact model and workflow provenance, AMD GPU inference, Actual timing and memory evidence]
+    success_criteria: [Generated video retrieved through the OpenMontage ComfyUI provider]
+  - name: compose
+    skill: pipelines/local-wan22-benchmark/director
+    required_artifacts_in: [asset_manifest]
+    produces: [render_report]
+    tools_available: [video_trimmer, frame_sampler]
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus: [Five-second playable video, Coherent motion and image quality, Honest comparison with Wan 2.1]
+    success_criteria: [Decoded video visually inspected, Download and generation times reported separately]

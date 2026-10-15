@@ -9,6 +9,11 @@ build/
 # Local model downloads (e.g. Piper TTS voices, fetched at runtime — not source)
 *.onnx
 *.onnx.json
+*.safetensors
+*.gguf
+*.ckpt
+*.pt
+*.pth
 
 # Test/IDE
 .pytest_cache/

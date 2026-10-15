@@ -1,0 +1,24 @@
+name: local-wan21-validation
+version: "1.0"
+description: Local deployment validation of one silent Wan 2.1 1.3B clip through the ComfyUI provider.
+category: custom
+stability: beta
+default_checkpoint_policy: auto_noncreative
+stages:
+  - name: assets
+    skill: pipelines/local-wan21-validation/director
+    produces: [asset_manifest]
+    tools_available: [video_selector, comfyui_video]
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus: [Actual AMD HIP inference, Temporal video latent, Workflow and model provenance]
+    success_criteria: [Generated video downloaded through the OpenMontage provider]
+  - name: compose
+    skill: pipelines/local-wan21-validation/director
+    required_artifacts_in: [asset_manifest]
+    produces: [render_report]
+    tools_available: [video_trimmer, frame_sampler]
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus: [Playable H264 video, Visible coherent motion, No abnormal colors]
+    success_criteria: [FFprobe and decoded frames verified, Final render visible in Backlot]
