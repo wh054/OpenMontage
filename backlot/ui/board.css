@@ -37,9 +37,9 @@
   --media-bg: #000;
   --textcard-bg: #0d0d10;
   --badge-bg: rgba(8,8,10,.72);
-  --sans: 'Inter', -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, monospace;
-  --screenplay: 'Courier Prime', 'Courier New', monospace;
+  --sans: 'Inter', -apple-system, 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'Microsoft YaHei', 'PingFang SC', monospace;
+  --screenplay: 'Courier Prime', 'Courier New', 'Microsoft YaHei', 'PingFang SC', monospace;
 
   /* Global type scale. Every font-size is calc(<px> * var(--fs-scale)), so this
      one number scales all text proportionally for readability. 1 = original. */
